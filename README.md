@@ -23,3 +23,6 @@ But it's only a link, not saved anywhere, so it the image link breaks, you lose 
 ## Conclusion
 
 ![](https://octodex.github.com/images/labtocat.png)
+
+
+markdown.rstudio.com
