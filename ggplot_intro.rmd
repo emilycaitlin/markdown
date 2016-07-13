@@ -89,5 +89,26 @@ b
 ```
 
 
+# GoogleVis interactive figure
+```{r}
+#install.packages('googleVis')
+suppressPackageStartupMessages(library(googleVis))
 
+```
+
+```{r, results='asis'}
+op <- options(gvis.plot.tag='chart') ## results='asis' is very important
+
+m = gvisMotionChart(
+  g,
+  idvar='country', 
+  timevar='year', 
+  xvar='log_gdpPercap', 
+  yvar='lifeExp', 
+  colorvar='continent',
+  sizevar='pop_m')
+plot(m)
+
+
+```
 
