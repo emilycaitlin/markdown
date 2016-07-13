@@ -1,0 +1,36 @@
+---
+title: "ggplot intro"
+author: "Emily"
+date: "13 July 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Plan
+
+We'll load libraries and learn ggplot2.
+
+Here we write in Markdown.
+
+# hastags mean headers 
+
+two hashtags were used infront of ## Plan, but we can use them in the middle of a line, and they have no effect.
+
+```{r}
+# here we write R.
+
+# hashtags mean comment
+summary(cars)
+```
+
+# Load libraries
+```{r}
+# Loading my libraries
+library(dplyr)
+library(gapminder)
+library(ggplot2) # install.packages('ggplot2')
+```
+
