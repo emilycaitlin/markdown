@@ -32,5 +32,62 @@ summary(cars)
 library(dplyr)
 library(gapminder)
 library(ggplot2) # install.packages('ggplot2')
+
+## subset our data
+g <- gapminder %>%
+  filter(year == 2007) %>%
+  mutate(pop_m = pop/1e6)
 ```
+
+# My first plot
+a simple geom_point
+```{r}
+## ggplot needs data (g), aes(x = , y = ) + what kind of plot
+s <- ggplot(g, aes(x = gdpPercap, y = lifeExp)) + geom_point() # actually works better with everything on the same line
+s # to print the plot
+```
+
+# My Seconf plot
+a simple geom_point with aes()
+```{r}
+## ggplot(data, aes(what's x, what's y)) + waht kind of plot
+
+s2 <-  s + aes(size = pop_m)
+s2
+
+s3 <-  s2 + aes(colour = continent)
+s3
+```
+
+
+# nice plus signs (sort of like piping!)
+
+```{r}
+s <- ggplot(g, aes(x = gdpPercap, y = lifeExp)) + 
+  geom_point() + 
+  aes(size = pop_m) + 
+  aes(colour = continent) +
+  ggtitle('Health and Wealth of Nations in 2007') +
+  xlab('GDP per capita (USD/year)') +
+  ylab('Life expectancy (years)') +
+  scale_colour_discrete('Continent') +
+  scale_size_continuous('Population (m)')
+s # how to put it into one object, rather than 3 and add loads more stuff!
+```
+
+# Make a boxplot
+This is my boxplot of continent and life expectancy.
+Using `g` which is a subset of 2007
+
+```{r}
+b <- ggplot(g, aes(x = continent, y = lifeExp)) + # remember to put ggplot first, then after x and y, say what plot you want
+  geom_boxplot() +
+  aes(fill = continent) +
+  theme(legend.position = 'none')
+b
+  
+```
+
+
+
 
